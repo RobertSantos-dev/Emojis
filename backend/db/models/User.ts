@@ -1,6 +1,6 @@
 import { Model, INTEGER, STRING } from 'sequelize';
 import db from '.';
-import UserEmoji from './UserEmoji';
+import UsersEmojis from './UserEmoji';
 
 class Users extends Model {
   declare id: number;
@@ -41,6 +41,6 @@ Users.init({
     timestamps: false,
 })
 
-Users.hasMany(UserEmoji, { foreignKey: 'userId' })
+// Users.hasMany(UsersEmojis, { foreignKey: 'userId' })
 
 export default Users;

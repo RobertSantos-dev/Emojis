@@ -1,14 +1,12 @@
 import { TEXT } from 'sequelize';
 import { Model, INTEGER, STRING } from 'sequelize';
 import db from '.';
-import UserEmoji from './UserEmoji';
+import UsersEmojis from './UserEmoji';
 
 class Emojis extends Model {
   declare id: number;
-  declare name: string;
-  declare role: string;
-  declare email: string;
-  declare password: string;
+  declare code: string;
+  declare description: string;
 }
 
 Emojis.init({
@@ -34,6 +32,6 @@ Emojis.init({
     timestamps: false,
 })
 
-Emojis.hasMany(UserEmoji, { foreignKey: 'emojiId' })
+// Emojis.hasMany(UsersEmojis, { foreignKey: 'emojiId' })
 
 export default Emojis;

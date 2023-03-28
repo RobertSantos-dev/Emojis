@@ -19,11 +19,19 @@ UsersEmojis.init({
   userId: {
     type: INTEGER,
     allowNull: false,
+    references: {
+      model: Users,
+      key: 'id'
+    }
     // field: 'user_id',
   },
   emojiId: {
     type: INTEGER,
     allowNull: false,
+    references: {
+      model: Emojis,
+      key: 'id'
+    }
     // field: 'emoji_id',
   },
 }, {
@@ -34,7 +42,14 @@ UsersEmojis.init({
   timestamps: false,
 });
 
-UsersEmojis.belongsTo(Users, { foreignKey: 'userId' });
-UsersEmojis.belongsTo(Emojis, { foreignKey: 'emojiId' });
+Users.belongsToMany(Emojis, { through: UsersEmojis });
+Emojis.belongsToMany(Users, { through: UsersEmojis });
+
+// UsersEmojis.belongsToMany(Users, { foreignKey: 'userId' });
+// UsersEmojis.belongsToMany(Emojis, { foreignKey: 'emojiId' });
+
+// Users.hasMany(UsersEmojis, { foreignKey: 'userId' })
+// Emojis.hasMany(UsersEmojis, { foreignKey: 'emojiId' });
+
 
 export default UsersEmojis;
