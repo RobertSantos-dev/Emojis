@@ -11,4 +11,20 @@ export default class UsersService {
     }
 
     return { type: null, message: user };
-}}
+  }
+
+  public getName = async (name: string) => {
+    const username = await this.usersRepository.getName(name);
+    if (!username) {
+      return { type: statusHttp.notFound, message: 'Username not found' }
+    }
+
+    return { type: null, message: username };
+  }
+
+  public getAll = async () => {
+    const users = await this.usersRepository.getAll();
+
+    return { type: null, message: users };
+  }
+}
