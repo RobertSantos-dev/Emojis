@@ -27,7 +27,18 @@ describe('Testes para a Tabela de usuarios', function() {
     expect(result).to.be.deep.equal(UsersDb[1]);
   });
 
-  it('03 - Teste se todos os usuarios são retornados com sucesso', async function() {
+  it('03 - Teste se é retornado o usuario correto', async function() {
+    sinon.stub(Users, 'findOne').resolves(UsersDb[0] as Users);
+
+    const repository = new UsersRepository();
+    const result = await repository.getEmailPassword({
+      email: 'robert@email.com', password: '******'
+    });
+
+    expect(result).to.be.deep.equal(UsersDb[0]);
+  });
+
+  it('04 - Teste se todos os usuarios são retornados com sucesso', async function() {
     sinon.stub(Users, 'findAll').resolves(UsersDb as Users[]);
 
     const repository = new UsersRepository();

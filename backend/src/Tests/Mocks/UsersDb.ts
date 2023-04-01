@@ -12,3 +12,9 @@ export const UsersDb = [{
   email: 'usuario@email.com',
 //   password: ''
 }]
+
+export const UsersCreateDb = {
+  name: 'Gabriel',
+  email: 'gabriel@email.com',
+  password: '123456',
+}

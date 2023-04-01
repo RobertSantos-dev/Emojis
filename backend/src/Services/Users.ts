@@ -1,4 +1,7 @@
 import UsersRepository from "../Repositories/Users";
+import { IUserLogin, IUsers, IUsersGet } from "../Interfaces/IUsers";
+
+import { createToken } from "../Auth/JWT";
 import statusHttp from "../Utils/statusHttp";
 
 export default class UsersService {
@@ -26,5 +29,38 @@ export default class UsersService {
     const users = await this.usersRepository.getAll();
 
     return { type: null, message: users };
+  }
+
+  public getEmailPassword = async (login: IUserLogin) => {
+    const user: IUsers = await this.usersRepository.getEmailPassword(login);
+
+    if (!user) {
+      return { type: statusHttp.notFound, message: 'Unregistered user' };
+    }
+
+    const token = createToken({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      role: user.role
+    });
+
+    return { type: null, message: token };
+  }
+
+  public postCreate = async (register: IUsers) => {
+    const username = await this.usersRepository.getName(register.name);
+    const useremail = await this.usersRepository.getEmail(register.email);
+
+    if (username || useremail) {
+      return { type: statusHttp.conflict, message: 'User exist' }
+    }
+
+    const { id, name, email, password, role
+    } = await this.usersRepository.postCreate(register);
+    
+    const token = createToken({ id, name, email, password, role });
+    return { type: null, message: token };
   }
 }

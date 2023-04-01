@@ -6,10 +6,12 @@ export interface IUsersPassword {
   password: string,
 }
 
+export interface IUserLogin extends IUsersEmail, IUsersPassword {}
+
 export interface IUsersGet extends IUsersEmail {
-  id: number,
+  id?: number,
   name: string,
-  role: string,
+  role?: string,
 }
 
 export interface IUsers extends IUsersGet, IUsersPassword {}
