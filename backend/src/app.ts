@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import UsersRoutes from './Routes/Users';
 import EmojisRoutes from './Routes/Emojis';
+import UsersEmojisRoutes from './Routes/UsersEmojis';
 
 class App {
   public app: express.Express;
@@ -13,6 +14,7 @@ class App {
 
     this.app.use('/users', UsersRoutes);
     this.app.use('/emojis', EmojisRoutes);
+    this.app.use('/favorites', UsersEmojisRoutes);
   }
 
   private config = (): void => {

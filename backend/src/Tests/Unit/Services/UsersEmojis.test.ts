@@ -10,7 +10,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   afterEach(function() { sinon.restore() });
 
   it('01 - Teste se e retornado os valores corretos em caso de sucesso', async function() {
-    sinon.stub(UserEmoji, 'create').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'create').resolves(UsersEmojisCreateDb[0] as UserEmoji);
 
     const userEmojiService = new UsersEmojisService();
     const { type, message } = await userEmojiService.postCreate(
@@ -18,7 +18,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
     );
 
     expect(type).to.be.equal(null)
-    expect(message).to.be.equal(UsersEmojisCreateDb);
+    expect(message).to.be.equal(UsersEmojisCreateDb[0]);
   });
 
   it('02 - Teste se e retornado erro ao tentar registrar', async function() {
@@ -34,7 +34,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   });
 
   it('03 - Teste se é retornado os dados corretos pelo id', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisService();
     const { type, message } = await userEmojiRepository.getId(1);
@@ -54,7 +54,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   });
 
   it('05 - Teste se é retornado os dados corretos pelo userId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisService();
     const { type, message } = await userEmojiRepository.getUserId(1);
@@ -64,7 +64,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   });
 
   it('06 - Teste se é retornado erro a o tentar consultar pelo userId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves();
+    sinon.stub(UserEmoji, 'findAll').resolves([]);
 
     const userEmojiRepository = new UsersEmojisService();
     const { type, message } = await userEmojiRepository.getUserId(0);
@@ -74,7 +74,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   });
 
   it('07 - Teste se é retornado os dados corretos pelo emojiId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisService();
     const { type, message } = await userEmojiRepository.getEmojiId(3);
@@ -84,7 +84,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
   });
 
   it('08 - Teste se é retornado erro a o tentar consultar pelo emojiId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves();
+    sinon.stub(UserEmoji, 'findAll').resolves([]);
 
     const userEmojiRepository = new UsersEmojisService();
     const { type, message } = await userEmojiRepository.getEmojiId(0);

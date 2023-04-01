@@ -9,16 +9,16 @@ describe('Testes para a Tabela de usuario_emojis', function() {
   afterEach(function() { sinon.restore() });
 
   it('01 - Teste se é possivel inserir uma nova linha na tabela', async function() {
-    sinon.stub(UserEmoji, 'create').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'create').resolves(UsersEmojisCreateDb[0] as UserEmoji);
 
     const userEmojiRepository = new UsersEmojisRepository();
     const result = await userEmojiRepository.postCreate({ userId: 1, emojiId: 3 });
 
-    expect(result).to.be.equal(UsersEmojisCreateDb);
+    expect(result).to.be.equal(UsersEmojisCreateDb[0]);
   });
 
   it('02 - Teste se é retornado os dados corretos pelo id', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisRepository();
     const result = await userEmojiRepository.getId(1);
@@ -27,7 +27,7 @@ describe('Testes para a Tabela de usuario_emojis', function() {
   });
 
   it('03 - Teste se é retornado os dados corretos pelo userId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisRepository();
     const result = await userEmojiRepository.getUserId(1);
@@ -36,10 +36,19 @@ describe('Testes para a Tabela de usuario_emojis', function() {
   });
 
   it('04 - Teste se é retornado os dados corretos pelo userId', async function() {
-    sinon.stub(UserEmoji, 'findOne').resolves(UsersEmojisCreateDb as UserEmoji);
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
 
     const userEmojiRepository = new UsersEmojisRepository();
     const result = await userEmojiRepository.getEmojiId(3);
+
+    expect(result).to.be.equal(UsersEmojisCreateDb);
+  });
+
+  it('05 - Teste se é retornado algum dado caso ja tenha algum registro', async function() {
+    sinon.stub(UserEmoji, 'findAll').resolves(UsersEmojisCreateDb as UserEmoji[]);
+
+    const userEmojiRepository = new UsersEmojisRepository();
+    const result = await userEmojiRepository.getUserIdEmojiId({ userId: 1, emojiId: 3 });
 
     expect(result).to.be.equal(UsersEmojisCreateDb);
   });

@@ -8,7 +8,7 @@ export default class UsersEmojisService {
   public getId = async (id: number) => {
     const result = await this.usersEmojisRepository.getId(id);
 
-    if (!result) {
+    if (result.length === 0) {
       return { type: statusHttp.notFound, message: 'id not found' }
     }
 
@@ -18,7 +18,7 @@ export default class UsersEmojisService {
   public getUserId = async (userId: number) => {
     const result = await this.usersEmojisRepository.getUserId(userId);
 
-    if (!result) {
+    if (result.length === 0) {
       return { type: statusHttp.notFound, message: 'userId not found' }
     }
 
@@ -28,7 +28,7 @@ export default class UsersEmojisService {
   public getEmojiId = async (emojiId: number) => {
     const result = await this.usersEmojisRepository.getEmojiId(emojiId);
 
-    if (!result) {
+    if (result.length === 0) {
       return { type: statusHttp.notFound, message: 'emojiId not found' }
     }
 
@@ -36,6 +36,11 @@ export default class UsersEmojisService {
   }
 
   public postCreate = async (values: IUsersEmojis) => {
+    const userIdEmojiId = await this.usersEmojisRepository.getUserIdEmojiId(values);
+    if (userIdEmojiId.length > 0) {
+      return { type: statusHttp.conflict, message: 'Error registering' }
+    }
+
     const result = await this.usersEmojisRepository.postCreate(values);
 
     if (!result) {

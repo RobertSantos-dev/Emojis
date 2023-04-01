@@ -42,14 +42,14 @@ UsersEmojis.init({
   timestamps: false,
 });
 
-Users.belongsToMany(Emojis, { through: UsersEmojis });
-Emojis.belongsToMany(Users, { through: UsersEmojis });
+// Users.belongsToMany(Emojis, { through: UsersEmojis });
+// Emojis.belongsToMany(Users, { through: UsersEmojis });
 
-// UsersEmojis.belongsToMany(Users, { foreignKey: 'userId' });
-// UsersEmojis.belongsToMany(Emojis, { foreignKey: 'emojiId' });
+UsersEmojis.belongsTo(Users, { foreignKey: 'userId' });
+UsersEmojis.belongsTo(Emojis, { foreignKey: 'emojiId' });
 
-// Users.hasMany(UsersEmojis, { foreignKey: 'userId' })
-// Emojis.hasMany(UsersEmojis, { foreignKey: 'emojiId' });
+Users.hasMany(UsersEmojis, { foreignKey: 'userId' })
+Emojis.hasMany(UsersEmojis, { foreignKey: 'emojiId' });
 
 
 export default UsersEmojis;
