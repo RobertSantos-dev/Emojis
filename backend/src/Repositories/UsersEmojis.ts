@@ -9,8 +9,8 @@ export default class UsersEmojisRepository {
     const result = await UserEmoji.findAll({
       where: { id },
       include: [
-        { model: Users, attributes: ['id', 'name', 'email', 'role'] },
-        { model: Emojis, attributes: ['id', 'code', 'description'] }
+        { model: Users, attributes: ['name', 'email', 'role'] },
+        { model: Emojis, attributes: ['code', 'description'] }
       ]
     });
 
@@ -20,10 +20,11 @@ export default class UsersEmojisRepository {
   public getUserId = async (userId: number) => {
     const result = await UserEmoji.findAll({
       where: { userId },
+      attributes: { exclude: ['id', 'emojiId'] },
       include: [
-        { model: Users, attributes: ['id', 'name', 'email', 'role'] },
-        { model: Emojis, attributes: ['id', 'code', 'description'] }
-      ]
+        { model: Emojis }
+        // { model: Users, attributes: ['name', 'email', 'role'] },
+      ],
     });
 
     return result;
@@ -32,9 +33,10 @@ export default class UsersEmojisRepository {
   public getEmojiId = async (emojiId: number) => {
     const result = await UserEmoji.findAll({
       where: { emojiId },
+      attributes: { exclude: ['id', 'userId'] },
       include: [
-        { model: Users, attributes: ['id', 'name', 'email', 'role'] },
-        { model: Emojis, attributes: ['id', 'code', 'description'] }
+        // { model: Emojis, attributes: ['code', 'description'] },
+        { model: Users, attributes: { exclude: ['password'] } },
       ]
     });
 
