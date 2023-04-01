@@ -4,6 +4,12 @@ import statusHttp from "../Utils/statusHttp";
 export default class EmojisService {
   constructor(private emojisRepository = new EmojiRepository()) {}
 
+  public getAll = async () => {
+    const emojis = await this.emojisRepository.getAll();
+
+    return { type: null, message: emojis };
+  }
+
   public getId = async (id: number) => {
     const emojiId = await this.emojisRepository.getId(id);
 
@@ -18,11 +24,5 @@ export default class EmojisService {
     if (!emojiCode) return { type: statusHttp.notFound, message: 'Code not found' };
 
     return { type: null, message: emojiCode };
-  }
-
-  public getAll = async () => {
-    const emojis = await this.emojisRepository.getAll();
-
-    return { type: null, message: emojis };
   }
 }

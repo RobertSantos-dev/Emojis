@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import UsersRoutes from './Routes/Users';
+import EmojisRoutes from './Routes/Emojis';
 
 class App {
   public app: express.Express;
@@ -10,7 +11,8 @@ class App {
     this.app = express();
     this.config();
 
-    this.app.use('/users', UsersRoutes)
+    this.app.use('/users', UsersRoutes);
+    this.app.use('/emojis', EmojisRoutes);
   }
 
   private config = (): void => {

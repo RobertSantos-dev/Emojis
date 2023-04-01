@@ -57,7 +57,7 @@ describe('Testes unitarios para Users na camada de Service', function() {
     });
 
     expect(type).to.be.equal(404);
-    expect(message).to.be.equal('Erro no email ou senha');
+    expect(message).to.be.equal('Unregistered user');
   });
 
   it('06 - Teste sé é retornado os dados corretos da função getEmailPassword', async function() {
