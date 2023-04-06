@@ -92,4 +92,16 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
     expect(type).to.be.equal(statusHttp.notFound);
     expect(message).to.be.equal('emojiId not found');
   });
+
+  it('09 - Teste se é possivel deletar passando o userId e emojiId', async function() {
+    sinon.stub(UserEmoji, 'destroy').resolves(201);
+
+    const userEmojiRepository = new UsersEmojisService();
+    const { type, message } = await userEmojiRepository.deleteDestroy({
+      userId: 4, emojiId: 8
+    });
+
+    expect(type).to.be.equal(null);
+    expect(message).to.be.equal('success');
+  });
 })

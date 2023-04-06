@@ -34,4 +34,12 @@ UsersEmojisRoutes.post(
   usersEmojisController.postCreate,
 );
 
+
+/* DELETE */
+UsersEmojisRoutes.delete(
+  '/',
+  isValidToken.vToken,
+  usersEmojisController.deleteDetroy
+)
+
 export default UsersEmojisRoutes;

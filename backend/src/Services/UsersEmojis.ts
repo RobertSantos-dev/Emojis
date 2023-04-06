@@ -49,4 +49,10 @@ export default class UsersEmojisService {
 
     return { type: null, message: result };
   }
+
+  public deleteDestroy = async (values: IUsersEmojis) => {
+    await this.usersEmojisRepository.deleteDestroy(values);
+
+    return { type: null, message: 'success' }
+  }
 }

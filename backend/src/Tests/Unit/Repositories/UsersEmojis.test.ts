@@ -52,4 +52,15 @@ describe('Testes para a Tabela de usuario_emojis', function() {
 
     expect(result).to.be.equal(UsersEmojisCreateDb);
   });
+
+  it('06 - Teste se é possivel apagar uma linha da tabela', async function() {
+    sinon.stub(UserEmoji, 'destroy').resolves(2)
+
+    const userEmojiRepository = new UsersEmojisRepository();
+    const result = await userEmojiRepository.deleteDestroy({
+      userId: 4, emojiId: 2
+    })
+
+    expect(result).to.be.equal(2)
+  })
 })

@@ -46,13 +46,23 @@ export default class UsersEmojisController {
 
   public postCreate = async (req: Request, res: Response) => {
     try {
-      const { type, message } = await this.usersEmojisService.postCreate(req.body)
+      const { type, message } = await this.usersEmojisService.postCreate(req.body);
 
       if (type) return res.status(type).json({ message });
     
       return res.status(statusHttp.created).json(message);
     } catch (error) {
-      console.log(error)
+      console.log(error);
+    }
+  }
+
+  public deleteDetroy = async (req: Request, res: Response) => {
+    try {
+      const { message } = await this.usersEmojisService.deleteDestroy(req.body);
+
+      return res.status(statusHttp.created).json({ message });
+    } catch (error) {
+      console.log(error);
     }
   }
 }

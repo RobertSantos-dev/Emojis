@@ -56,4 +56,12 @@ export default class UsersEmojisRepository {
 
     return result;
   }
+
+  public deleteDestroy = async ({ userId, emojiId }: IUsersEmojis) => {
+    const result = await UserEmoji.destroy({
+      where: { userId, emojiId }
+    });
+
+    return result;
+  }
 }
