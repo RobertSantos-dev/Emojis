@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useState } from "react"
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { loginApi } from "../api/user";
-import FormLogin from "../components/login/FormLogin";
-import ButtonLogin from "../components/login/ButtonLogin";
-import ButtonCreate from "../components/login/ButtonCreate";
+import { registerApi } from "../api/user";
+import FormRegister from "../components/register/FormRegister";
+import ButtonRegister from "../components/register/ButtonRegister";
 
-export default function Login() {
-  const [form, setForm] = useState({ email: '', password: '' });
+export default function Register() {
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -18,17 +17,16 @@ export default function Login() {
 
   return (
     <>
-      <FormLogin
+      <FormRegister
         form={ form }
         handleChange={ handleChange }
       />
-      <ButtonLogin
-        loginApi={ loginApi }
+      <ButtonRegister
+        registerApi={ registerApi }
         form={ form }
         history={ history }
         dispatch={ dispatch }
       />
-      <ButtonCreate history={ history } />
     </>
   );
 }

@@ -1,8 +1,10 @@
-export default function ButtonLogin({ dispatch, login, form }) {
+export default function ButtonLogin(
+    { loginApi, form, history, dispatch }
+  ) {
   return (
     <button
       type="submit"
-      onClick={ () => dispatch(login(form)) }
+      onClick={ () => loginApi(form, history, dispatch) }
     >
       Login
     </button>

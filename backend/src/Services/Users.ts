@@ -42,7 +42,6 @@ export default class UsersService {
       id: user.id,
       name: user.name,
       email: user.email,
-      password: user.password,
       role: user.role
     });
 
@@ -57,10 +56,10 @@ export default class UsersService {
       return { type: statusHttp.conflict, message: 'User exist' }
     }
 
-    const { id, name, email, password, role
+    const { id, name, email, role
     } = await this.usersRepository.postCreate(register);
     
-    const token = createToken({ id, name, email, password, role });
+    const token = createToken({ id, name, email, role });
     return { type: null, message: token };
   }
 }

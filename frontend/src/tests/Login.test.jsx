@@ -10,13 +10,13 @@ describe('Pagina de Login', () => {
     const labelEmail = screen.getByLabelText(/Email/);
     const labelPassword = screen.getByLabelText(/Password/);
 
-    expect(history.location.pathname).toBe('/')
+    expect(history.location.pathname).toBe('/');
     expect(labelEmail).toBeInTheDocument();
     expect(labelPassword).toBeInTheDocument();
   });
 
   it('02 - Teste se os elementos recebem valores, e a rota atual', async () => {
-    const { store } = renderWithRouterRedux(<App />);
+    const { store, history } = renderWithRouterRedux(<App />);
 
     const labelEmail = screen.getByLabelText(/Email/);
     const labelPassword = screen.getByLabelText(/Password/);
@@ -27,8 +27,7 @@ describe('Pagina de Login', () => {
     await userEvent.click(button);
     
     const user = store.getState().user.login;
-
+    expect(history.location.pathname).toBe('/emojis');
     expect(user.email).toBe('robert@email.com');
-    expect(user.password).toBe('secret_admin');
   });
 })

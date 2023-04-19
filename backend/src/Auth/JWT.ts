@@ -1,11 +1,11 @@
 import * as jwt from 'jsonwebtoken';
-import { IUsers } from '../Interfaces/IUsers';
+import { IUsers, IUsersGet } from '../Interfaces/IUsers';
 import IJwt from '../Interfaces/IJwt';
 
 const secret = 'jwt_secret'
 const jwtConfig: jwt.SignOptions = { expiresIn: '1d', algorithm: 'HS256' };
 
-export const createToken = (user: IUsers) => {
+export const createToken = (user: IUsersGet) => {
   const token = jwt.sign({ data: user }, secret, jwtConfig);
 
   return token;
