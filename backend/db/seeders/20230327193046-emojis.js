@@ -5,78 +5,78 @@ module.exports = {
   async up (queryInterface, _Sequelize) {
     await queryInterface.bulkInsert('emojis', [
       {
-        code: '1F600',
+        code: '😀',
         description: 'Rosto sorrindo',
       },{
-        code: '1F601',
+        code: '😁',
         description: 'Rosto sorrindo com olhos sorrindo',
       },
       {
-        code: '1F602',
+        code: '😂',
         description: 'Cara com lágrimas de alegria',
       },
       {
-        code: '1F603',
+        code: '😃',
         description: 'Rosto sorrindo com boca aberta',
       },
       {
-        code: '1F604',
+        code: '😄',
         description: 'Rosto sorrindo com a boca aberta e olhos sorrindo',
       },
       {
-        code: '1F605',
+        code: '😅',
         description: 'Rosto sorrindo com boca aberta e suor frio',
       },
       {
-        code: '1F606',
+        code: '😆',
         description: 'Rosto sorrindo com a boca aberta e olhos fechados',
       },
       {
-        code: '1F607',
+        code: '😇',
         description: 'Rosto sorrindo com halo',
       },
       {
-        code: '1F609',
+        code: '😉',
         description: 'Rosto piscando',
       },
       {
-        code: '1F60A',
+        code: '😊',
         description: 'Rosto sorrindo com olhos sorrindo',
       },
       {
-        code: '1F60B',
+        code: '😋',
         description: 'Comida deliciosa saborosa de cara',
       },
       {
-        code: '1F60C',
+        code: '😌',
         description: 'Rosto aliviado',
       },
       {
-        code: '1F60D',
+        code: '😍',
         description: 'Rosto sorrindo com olhos em forma de coração',
       },
       {
-        code: '1F60E',
+        code: '😎',
         description: 'Rosto sorrindo com óculos de sol',
       },
       {
-        code: '1F60F',
+        code: '😏',
         description: 'Cara sorrindo',
       },
       {
-        code: '1F610',
+        code: '😐',
         description: 'Cara neutro',
       },
       {
-        code: '1F611',
+        code: '😑',
         description: 'Rosto sem expressão',
       },
       {
-        code: '1F612',
+        code: '😒',
         description: 'Rosto sem divertimento'
       },
       {
-        code: '1F613',
+        code: '😓',
         description: 'Rosto com suor frio'
       }
     ], {});

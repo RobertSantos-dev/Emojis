@@ -2,6 +2,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Home from "./pages/Home";
 import "./styles/App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ Login } />
         <Route exact path="/register" component={ Register } />
+        <Route exact path="/emojis" component={ Home } />
       </Switch>
     </section>
   );
