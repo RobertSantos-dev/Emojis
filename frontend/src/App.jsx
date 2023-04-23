@@ -13,6 +13,7 @@ function App() {
         <Route exact path="/" component={ Login } />
         <Route exact path="/register" component={ Register } />
         <Route exact path="/emojis" component={ Home } />
+        <Route exact path="/emojis/:id" component={ Home } />
       </Switch>
     </section>
   );

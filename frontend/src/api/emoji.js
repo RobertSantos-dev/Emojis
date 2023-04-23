@@ -1,5 +1,5 @@
 import api from "./config";
-import { getEmojis } from "../redux/emoji/slice";
+import { getEmojis, getEmojisId } from "../redux/emoji/slice";
 
 export const emojisGet = async (dispatch) => {
   try {
@@ -10,5 +10,14 @@ export const emojisGet = async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+}
 
+export const emojisIdGet = async (dispatch, id) => {
+  try {
+    const { data } = await api.get(`/emojis/${id}`);
+    dispatch(getEmojisId(data))
+
+  } catch(error) {
+    console.log(error)
+  }
 }

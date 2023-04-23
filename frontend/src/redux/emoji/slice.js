@@ -2,11 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const emojisSlice = createSlice({
   name: 'emojis',
-  initialState: [],
+  initialState: {emojis: [], emojisId: {}},
   reducers: {
-    getEmojis: (_state, action) => (action.payload)
+    getEmojis: (state, action) => ({
+        ...state,
+        emojis: action.payload,
+      }),
+    getEmojisId: (state, action) => ({
+      ...state,
+      emojisId: action.payload
+    })
   }
 });
 
-export const { getEmojis } = emojisSlice.actions;
+export const { getEmojis, getEmojisId } = emojisSlice.actions;
 export default emojisSlice.reducer;

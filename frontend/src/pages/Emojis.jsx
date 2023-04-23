@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { emojisGet } from "../api/emoji";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { emojisGet } from "../api/emoji";
 
 import ListEmojisPages from "../components/emojis/ListEmojisPages";
 
 export default function Emojis() {
   const [listEmojis, setListEmojis] = useState([]);
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.emojis)
+  const selector = useSelector((state) => state.emojis.emojis)
+  const history = useHistory();
 
   useEffect(() => {
     emojisGet(dispatch)
@@ -16,7 +18,10 @@ export default function Emojis() {
 
   return (
     <section>
-      <ListEmojisPages listEmojis={ listEmojis } />
+      <ListEmojisPages
+        listEmojis={ listEmojis }
+        history={ history }
+      />
     </section>
   );
 }
