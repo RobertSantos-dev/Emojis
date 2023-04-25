@@ -4,14 +4,14 @@ import { setStorage } from '../common/storage'
 
 export const loginApi = async ({ email, password }, history, dispatch) => {
   try {
-    const { data: { token } } = await api.post(
+    const { data: { token, user } } = await api.post(
       'users/login',
       { email, password }
     );
 
     if (token) {
       setStorage('token', token);
-      dispatch(login({ email }));
+      dispatch(login(user));
       history.push('/emojis');
     }
   } catch (error) {
@@ -25,14 +25,14 @@ export const registerApi = async (
   dispatch
 ) => {
     try {
-      const { data: { token } } = await api.post(
+      const { data: { token, user } } = await api.post(
         'users/register',
         { name, email, password }
       );
 
       if (token) {
         setStorage('token', token);
-        dispatch(login({ email }));
+        dispatch(login(user));
         history.push('/emojis');
       }
     } catch (error) {

@@ -11,7 +11,7 @@ export default class UsersController {
 
       if (type) return res.status(type).json({ message });
 
-      return res.status(statusHttp.created).json({ token: message })
+      return res.status(statusHttp.created).json(message)
     } catch (error) {
       console.log(error)
     }
@@ -23,7 +23,7 @@ export default class UsersController {
 
       if (type) return res.status(type).json({ message });
 
-      return res.status(statusHttp.created).json({ token: message });
+      return res.status(statusHttp.created).json(message);
     } catch (error) {
       console.log(error)
     }

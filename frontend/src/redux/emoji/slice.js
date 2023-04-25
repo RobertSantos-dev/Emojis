@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const emojisSlice = createSlice({
   name: 'emojis',
-  initialState: {emojis: [], emojisId: {}},
+  initialState: { emojis: [], emojisId: {} },
   reducers: {
     getEmojis: (state, action) => ({
         ...state,
@@ -10,10 +10,14 @@ const emojisSlice = createSlice({
       }),
     getEmojisId: (state, action) => ({
       ...state,
-      emojisId: action.payload
+      emojisId: [action.payload, { favorite: false }]
+    }),
+    getUserEmojiId: (state, action) => ({
+      ...state,
+      emojisId: [action.payload, { favorite: true }]
     })
   }
 });
 
-export const { getEmojis, getEmojisId } = emojisSlice.actions;
+export const { getEmojis, getEmojisId, getUserEmojiId } = emojisSlice.actions;
 export default emojisSlice.reducer;

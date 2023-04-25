@@ -32,20 +32,16 @@ export default class UsersService {
   }
 
   public getEmailPassword = async (login: IUserLogin) => {
-    const user: IUsers = await this.usersRepository.getEmailPassword(login);
+    const {
+      id, name, email, role
+    }: IUsers = await this.usersRepository.getEmailPassword(login);
 
-    if (!user) {
+    if (!id || !name || !email || !role) {
       return { type: statusHttp.notFound, message: 'Unregistered user' };
     }
 
-    const token = createToken({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      role: user.role
-    });
-
-    return { type: null, message: token };
+    const token = createToken({ id, name, email, role });
+    return { type: null, message: { token, user: { id, name, email, role } } };
   }
 
   public postCreate = async (register: IUsers) => {
@@ -58,8 +54,8 @@ export default class UsersService {
 
     const { id, name, email, role
     } = await this.usersRepository.postCreate(register);
-    
+
     const token = createToken({ id, name, email, role });
-    return { type: null, message: token };
+    return { type: null, message: { token, user: { id, name, email, role } } };
   }
 }
