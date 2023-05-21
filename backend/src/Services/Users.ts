@@ -32,14 +32,12 @@ export default class UsersService {
   }
 
   public getEmailPassword = async (login: IUserLogin) => {
-    const {
-      id, name, email, role
-    }: IUsers = await this.usersRepository.getEmailPassword(login);
-
-    if (!id || !name || !email || !role) {
+    const user: IUsers = await this.usersRepository.getEmailPassword(login);
+    if (!user) {
       return { type: statusHttp.notFound, message: 'Unregistered user' };
     }
 
+    const { id, name, email, role } = user;
     const token = createToken({ id, name, email, role });
     return { type: null, message: { token, user: { id, name, email, role } } };
   }

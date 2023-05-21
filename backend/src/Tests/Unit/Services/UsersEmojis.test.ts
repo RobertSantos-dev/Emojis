@@ -14,7 +14,7 @@ describe('Testes unitários para UsersEmojis na camada de Service', function() {
 
     const userEmojiService = new UsersEmojisService();
     const { type, message } = await userEmojiService.postCreate(
-      { userId: 1, emojiId: 3 }
+      { userId: 99, emojiId: 3 }
     );
 
     expect(type).to.be.equal(null)
