@@ -1,0 +1,52 @@
+:root {
+  --bg-one: #282a36;
+  --bg-two: #44475a;
+  --bg-tree: #bd93f9;
+  --bg-four: #ff79c6;
+}
+
+.header {
+  align-items: center;
+  background-color: var(--bg-two);
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.logo p {
+  color: var(--bg-tree);
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+}
+
+.info {
+  margin-right: 20px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.info span {
+  font-size: 17px;
+  color: white;
+}
+
+.info button {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--bg-four);
+  font-size: 25px;
+  font-weight: 900;
+  height: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 50px;
+}
+
+.info button:hover {
+  box-shadow: 0 0 7px black, inset 0 0 3px black;
+}

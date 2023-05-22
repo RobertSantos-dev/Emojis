@@ -1,14 +1,18 @@
 import { useSelector } from "react-redux";
+import '../../styles/HeaderStyles/Header.css';
+import { BsPower } from "react-icons/bs";
 
 export default function Header() {
-  const selector = useSelector(({ user: { login } }) => login.email);
+  const selector = useSelector(({ user: { login } }) => login.name);
 
   return (
-    <header>
-      <div>Emojis Rede</div>
-      <div>
+    <header className='header'>
+      <div className='logo'>
+        <p>Emojis Rede</p>
+      </div>
+      <div className='info'>
         <span>{ selector }</span>
-        <button>sair</button>
+        <button><BsPower /></button>
       </div>
     </header>
   );
