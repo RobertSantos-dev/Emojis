@@ -1,0 +1,72 @@
+.register {
+  box-shadow: 0 0 7px black, inset 0 0 3px black;
+  height: 550px;
+  width: 45%;
+  margin: 50px auto;
+}
+
+.icon-register {
+  font-size: 170px;
+  margin-bottom: 40px;
+  transform: translateY(-40px);
+}
+
+.icon-register svg {
+  background-color: var(--bg-four);
+  border-radius: 50px;
+  color: black;
+  padding: 10px;
+}
+
+form {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.register fieldset {
+  border: none;
+  font-size: 18px;
+  width: 90%;
+}
+
+.userName label,
+.userEmail label,
+.userPassword label {
+  color: white;
+  justify-content: space-between;
+}
+
+.userName label,
+.userEmail label,
+.userPassword label,
+.icon-register,
+.div-btn {
+  align-items: center;
+  display: flex;
+}
+
+.userName input,
+.userEmail input,
+.userPassword input {
+  font-size: 16px;
+  height: 30px;
+  width: 70%;
+}
+
+.div-btn {
+  width: 100%;
+}
+
+.icon-register, .div-btn {
+  justify-content: center;
+}
+
+.btn-register {
+  background-color: var(--bg-four);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 40px;
+  width: 90%;
+}

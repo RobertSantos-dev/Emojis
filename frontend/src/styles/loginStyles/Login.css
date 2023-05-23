@@ -1,8 +1,8 @@
 .login {
   box-shadow: 0 0 7px black, inset 0 0 3px black;
   border-radius: 10px;
-  height: 440px;
-  margin: 90px auto;
+  height: 460px;
+  margin: 70px auto;
   padding: 10px;
   width: 35%;
 }
@@ -11,7 +11,7 @@ form {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin: 30px auto;
   width: 400px;
 }
 
@@ -41,8 +41,8 @@ form, .login {
 }
 
 .email label, .password label, .icon, .login {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .email input, .password input {
@@ -73,6 +73,7 @@ form, .login {
 
 .btn-submit {
   background-color: var(--bg-four);
+  margin-top: 15px;
   margin-bottom: 3px;
 }
 

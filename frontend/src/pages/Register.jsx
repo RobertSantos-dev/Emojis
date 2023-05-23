@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { registerApi } from "../api/user";
+import IconRegister from "../components/register/IconRegister";
 import FormRegister from "../components/register/FormRegister";
 import ButtonRegister from "../components/register/ButtonRegister";
+import '../styles/registerStyles/Register.css';
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -16,7 +18,8 @@ export default function Register() {
   }
 
   return (
-    <>
+    <section className="register">
+      <IconRegister />
       <FormRegister
         form={ form }
         handleChange={ handleChange }
@@ -27,6 +30,6 @@ export default function Register() {
         history={ history }
         dispatch={ dispatch }
       />
-    </>
+    </section>
   );
 }

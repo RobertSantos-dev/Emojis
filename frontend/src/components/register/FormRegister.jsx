@@ -1,7 +1,7 @@
 export default function FormRegister({ form, handleChange }) {
     return(
       <form>
-        <fieldset>
+        <fieldset className="userName">
           <label htmlFor="nameId">
             Nome:
             {' '}
@@ -14,7 +14,7 @@ export default function FormRegister({ form, handleChange }) {
             />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset className="userEmail">
           <label htmlFor="emailId">
             Email:
             {' '}
@@ -27,7 +27,7 @@ export default function FormRegister({ form, handleChange }) {
             />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset className="userPassword">
           <label htmlFor="passwordId">
             Senha:
             {' '}
