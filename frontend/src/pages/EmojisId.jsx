@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { userEmojiGetId } from "../api/emoji";
 
 import Description from "../components/emojisId/Description";
+import '../styles/emojisIdStyles/EmojisId.css';
 
 export default function EmojisId() {
   const { id } = useParams();
