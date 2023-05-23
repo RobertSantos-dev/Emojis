@@ -1,7 +1,7 @@
 export default function Form({ form, handleChange }) {
   return(
     <form>
-      <fieldset>
+      <fieldset className="email">
         <label htmlFor="emailId">
           Email:
           {' '}
@@ -14,7 +14,7 @@ export default function Form({ form, handleChange }) {
           />
         </label>
       </fieldset>
-      <fieldset>
+      <fieldset className="password">
         <label htmlFor="passwordId">
           Password:
           {' '}

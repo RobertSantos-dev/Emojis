@@ -1,0 +1,88 @@
+.login {
+  box-shadow: 0 0 7px black, inset 0 0 3px black;
+  border-radius: 10px;
+  height: 440px;
+  margin: 90px auto;
+  padding: 10px;
+  width: 35%;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 400px;
+}
+
+form, .login {
+  flex-direction: column;
+}
+
+.icon {
+  font-size: 140px;
+  justify-content: center;
+  transform: translateY(-30px);
+}
+
+.icon svg {
+  background-color: var(--bg-four);
+  border-radius: 100px;
+  padding: 10px;
+}
+
+.email, .password {
+  width: 90%;
+}
+
+.email label, .password label {
+  color: white;
+  justify-content: space-between;
+}
+
+.email label, .password label, .icon, .login {
+  display: flex;
+  align-items: center;
+}
+
+.email input, .password input {
+  background-color: white;
+  border-radius: 2px;
+  font-size: 18px;
+  height: 35px;
+  width: 260px;
+}
+
+.email,
+.password,
+.email input,
+.password input,
+.btn-create,
+.btn-submit {
+  border: none;
+}
+
+.btn-submit, .btn-create {
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 40px;
+  transition: 0.2s linear;
+  width: 90%;
+}
+
+.btn-submit {
+  background-color: var(--bg-four);
+  margin-bottom: 3px;
+}
+
+.btn-create {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-create:hover {
+  background-color: white;
+  color: black;
+}
