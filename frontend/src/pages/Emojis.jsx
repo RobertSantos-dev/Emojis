@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { emojisGet } from "../api/emoji";
 
 import ListEmojisPages from "../components/emojis/ListEmojisPages";
+import '../styles/emojisStyles/Emojis.css';
 
 export default function Emojis() {
   const [listEmojis, setListEmojis] = useState([]);

@@ -3,4 +3,11 @@
   margin: 0;
   padding: 0;
   width: 100%;
+
+  --bg-one: #282a36;
+  --bg-two: #44475a;
+  --bg-tree: #bd93f9;
+  --bg-four: #ff79c6;
+  --bg-five: #50fa7b;
+  --bg-six: #8be9fd;
 }

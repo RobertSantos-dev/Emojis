@@ -1,13 +1,15 @@
 export default function ListEmojisPages({ listEmojis, history }) {
   return (
-    <ul>
+    <ul className='list'>
       { listEmojis.map((e) => (
         <li key={ e.id }>
           <button
-            type="button"
+            type='button'
+            className='buttons'
             onClick={ () => history.push(`/emojis/${e.id}`) }
           >
-            { e.code }
+            <span>{ e.code }</span>
+            <span className='desc'>{ e.description }</span>
           </button>
         </li>
       )) }

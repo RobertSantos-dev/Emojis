@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import '../../styles/HeaderStyles/Header.css';
+import '../../styles/headerStyles/Header.css';
 import { BsPower } from "react-icons/bs";
 
 export default function Header() {
